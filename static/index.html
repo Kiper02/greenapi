@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREEN-API Тестирование</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="card">
+    <h2>Параметры подключения к инстансу GREEN-API</h2>
+    <div class="row">
+        <label>idInstance:</label>
+        <input type="text" id="idInstance" placeholder="Введите idInstance" value="">
+    </div>
+    <div class="row">
+        <label>apiTokenInstance:</label>
+        <input type="text" id="apiTokenInstance" placeholder="Введите apiTokenInstance" value="">
+    </div>
+</div>
+
+<div class="card">
+    <h2>getSettings</h2>
+    <button onclick="callAPI('getSettings')">Выполнить getSettings</button>
+    <pre id="getSettingsResult">—</pre>
+</div>
+
+<div class="card">
+    <h2>getStateInstance</h2>
+    <button onclick="callAPI('getStateInstance')">Выполнить getStateInstance</button>
+    <pre id="getStateInstanceResult">—</pre>
+</div>
+
+<div class="card">
+    <h2>sendMessage</h2>
+    <div class="input-group">
+        <input type="text" id="chatIdMessage" placeholder="chatId (например, 79001234567@c.us)" style="width: 45%;">
+        <input type="text" id="messageText" placeholder="Текст сообщения" style="width: 45%;">
+        <button onclick="callSendMessage()">Отправить</button>
+    </div>
+    <pre id="sendMessageResult">—</pre>
+</div>
+
+<div class="card">
+    <h2>sendFileByUrl</h2>
+    <div class="input-group">
+        <input type="text" id="chatIdFile" placeholder="chatId" style="width: 30%;">
+        <input type="text" id="fileUrl" placeholder="URL файла" style="width: 40%;">
+        <input type="text" id="fileName" placeholder="Имя файла" style="width: 30%;">
+    </div>
+    <div class="input-group">
+        <input type="text" id="caption" placeholder="Подпись к файлу (необязательно)" style="width: 100%;">
+        <button onclick="callSendFileByUrl()">Отправить файл по URL</button>
+    </div>
+    <pre id="sendFileByUrlResult">—</pre>
+</div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
