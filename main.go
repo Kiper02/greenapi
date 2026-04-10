@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
 
 	greenapi "github.com/green-api/max-api-client-golang"
 )
@@ -17,8 +18,13 @@ func main() {
 	http.HandleFunc("/api/sendMessage", sendMessageHandler)
 	http.HandleFunc("/api/sendFileByUrl", sendFileByUrlHandler)
 
-	log.Println("Сервер запущен на http://localhost:8080")
-	err := http.ListenAndServe(":8080", nil)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Printf("Сервер запущен на порту %s", port)
+	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		log.Fatal("Ошибка запуска сервера: ", err)
 	}
